@@ -1,15 +1,610 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Reports | Smart Attendance</title><link rel="stylesheet" href="../css/style.css"></head>
-<body class="dashboard-body"><div class="dashboard-layout">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Defines the character encoding used by the webpage -->
+  <meta charset="UTF-8">
+
+  <!-- Makes the webpage responsive on different screen sizes -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title displayed in the browser tab -->
+  <title>Reports | Smart Attendance</title>
+
+  <!-- Connects this page to the main CSS stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+
+<!--
+  dashboard-body is used for dashboard pages.
+  CSS uses this class to provide the dashboard layout.
+-->
+<body class="dashboard-body">
+
+
+  <!-- =====================================================
+       MAIN DASHBOARD LAYOUT
+       ===================================================== -->
+
+  <div class="dashboard-layout">
+
+
+    <!-- ===================================================
+         SIDEBAR
+         Contains teacher navigation
+         =================================================== -->
+
     <aside class="sidebar">
-      <a class="brand" href="../index.html"><span class="brand-mark">SA</span><span>Smart Attendance</span></a>
-      <div class="side-role"><span class="avatar">T</span><div><strong>Teacher</strong><small>Portal</small></div></div>
+
+
+      <!-- Smart Attendance logo -->
+      <a class="brand" href="../index.html">
+
+        <!-- SA stands for Smart Attendance -->
+        <span class="brand-mark">
+          SA
+        </span>
+
+        <!-- Website name -->
+        <span>
+          Smart Attendance
+        </span>
+
+      </a>
+
+
+      <!-- =================================================
+           TEACHER ROLE
+           ================================================= -->
+
+      <div class="side-role">
+
+        <!-- Teacher avatar -->
+        <span class="avatar">
+          T
+        </span>
+
+        <!-- Teacher role information -->
+        <div>
+
+          <strong>
+            Teacher
+          </strong>
+
+          <small>
+            Portal
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           SIDEBAR NAVIGATION
+           ================================================= -->
+
       <nav class="side-nav">
-        <a class="" href="teacher-dashboard.html">⌂ <span>Dashboard</span></a>
-        <a class="" href="classes.html">▦ <span>Classes</span></a>
-        <a class="" href="attendance.html">✓ <span>Attendance</span></a>
-        <a class="active" href="reports.html">▥ <span>Reports</span></a>
-        <a href="profile.html">◉ <span>Profile</span></a>
+
+
+        <!-- Dashboard link -->
+        <a class="" href="teacher-dashboard.html">
+          ⌂ <span>Dashboard</span>
+        </a>
+
+
+        <!-- Classes link -->
+        <a class="" href="classes.html">
+          ▦ <span>Classes</span>
+        </a>
+
+
+        <!-- Attendance link -->
+        <a class="" href="attendance.html">
+          ✓ <span>Attendance</span>
+        </a>
+
+
+        <!-- Reports link
+             "active" indicates that this is the current page -->
+        <a class="active" href="reports.html">
+          ▥ <span>Reports</span>
+        </a>
+
+
+        <!-- Profile link -->
+        <a href="profile.html">
+          ◉ <span>Profile</span>
+        </a>
+
       </nav>
-      <a class="logout" href="login.html">↪ <span>Logout</span></a>
-    </aside><main class="main-area"><header class="topbar"><button class="mobile-sidebar" aria-label="Menu">☰</button><div><p class="breadcrumb">Portal / Reports</p><h1>Reports</h1></div><div class="top-user"><div class="notification">♧</div><span class="avatar">R</span><div class="top-user-text"><strong>Rudraksh</strong><small>Teacher</small></div></div></header><div class="page-actions"><div><p class="muted">Class-wise and student-wise attendance reporting.</p></div><button class="btn btn-secondary" id="exportBtn">↓ Export CSV</button></div><section class="report-cards"><div class="report-card"><span>Average Attendance</span><strong>89.8%</strong><div class="progress"><i style="width:89.8%"></i></div></div><div class="report-card"><span>Students Below 75%</span><strong>17</strong><div class="progress"><i style="width:31%"></i></div></div><div class="report-card"><span>Sessions Conducted</span><strong>126</strong><div class="progress"><i style="width:76%"></i></div></div></section>
-<section class="panel"><div class="panel-heading"><div><h2>Class-wise report</h2><p>Current semester attendance summary.</p></div><select><option>Semester 5</option><option>Semester 4</option></select></div><div class="table-wrap"><table id="reportTable"><thead><tr><th>Class</th><th>Students</th><th>Present</th><th>Absent</th><th>Average</th><th>Health</th></tr></thead><tbody><tr><td>Web Technology - BCA-3A</td><td>45</td><td>41</td><td>4</td><td>91.1%</td><td><span class="badge success">Healthy</span></td></tr><tr><td>Database Systems - BCA-3B</td><td>41</td><td>35</td><td>6</td><td>85.4%</td><td><span class="badge success">Healthy</span></td></tr><tr><td>Computer Networks - BCA-2A</td><td>40</td><td>29</td><td>11</td><td>72.5%</td><td><span class="badge danger">Shortage</span></td></tr></tbody></table></div></section></main></div><script src="../js/app.js"></script></body></html>
+
+
+      <!-- Logout link -->
+      <a class="logout" href="login.html">
+        ↪ <span>Logout</span>
+      </a>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT AREA
+         ===================================================== -->
+
+    <main class="main-area">
+
+
+      <!-- ===================================================
+           TOP BAR
+           =================================================== -->
+
+      <header class="topbar">
+
+
+        <!-- Mobile menu button -->
+        <button
+          class="mobile-sidebar"
+          aria-label="Menu">
+
+          ☰
+
+        </button>
+
+
+        <!-- Page heading -->
+        <div>
+
+          <!-- Breadcrumb shows the current location -->
+          <p class="breadcrumb">
+            Portal / Reports
+          </p>
+
+          <!-- Main page title -->
+          <h1>
+            Reports
+          </h1>
+
+        </div>
+
+
+        <!-- =================================================
+             LOGGED-IN TEACHER INFORMATION
+             ================================================= -->
+
+        <div class="top-user">
+
+
+          <!-- Notification icon -->
+          <div class="notification">
+            ♧
+          </div>
+
+
+          <!-- Teacher avatar -->
+          <span class="avatar">
+            R
+          </span>
+
+
+          <!-- Teacher name and role -->
+          <div class="top-user-text">
+
+            <strong>
+              Rudraksh
+            </strong>
+
+            <small>
+              Teacher
+            </small>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+
+      <!-- =====================================================
+           PAGE ACTIONS
+           Contains description and Export button
+           ===================================================== -->
+
+      <div class="page-actions">
+
+
+        <!-- Description of the reports page -->
+        <div>
+
+          <p class="muted">
+            Class-wise and student-wise attendance reporting.
+          </p>
+
+        </div>
+
+
+        <!--
+          Export button.
+
+          id="exportBtn" allows JavaScript to identify
+          this button and generate a CSV file.
+        -->
+        <button
+          class="btn btn-secondary"
+          id="exportBtn">
+
+          ↓ Export CSV
+
+        </button>
+
+      </div>
+
+
+
+      <!-- =====================================================
+           REPORT SUMMARY CARDS
+           ===================================================== -->
+
+      <section class="report-cards">
+
+
+        <!-- =================================================
+             CARD 1 - AVERAGE ATTENDANCE
+             ================================================= -->
+
+        <div class="report-card">
+
+          <!-- Card title -->
+          <span>
+            Average Attendance
+          </span>
+
+          <!-- Attendance percentage -->
+          <strong>
+            89.8%
+          </strong>
+
+
+          <!-- Progress bar -->
+          <div class="progress">
+
+            <!--
+              The width represents the attendance percentage.
+
+              89.8% attendance = 89.8% progress bar width.
+            -->
+            <i style="width:89.8%"></i>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CARD 2 - STUDENTS BELOW 75%
+             ================================================= -->
+
+        <div class="report-card">
+
+          <!-- Card title -->
+          <span>
+            Students Below 75%
+          </span>
+
+          <!-- Number of students -->
+          <strong>
+            17
+          </strong>
+
+
+          <!-- Progress indicator -->
+          <div class="progress">
+
+            <!--
+              Represents the percentage/level visually.
+            -->
+            <i style="width:31%"></i>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CARD 3 - SESSIONS CONDUCTED
+             ================================================= -->
+
+        <div class="report-card">
+
+          <!-- Card title -->
+          <span>
+            Sessions Conducted
+          </span>
+
+          <!-- Number of sessions -->
+          <strong>
+            126
+          </strong>
+
+
+          <!-- Progress indicator -->
+          <div class="progress">
+
+            <i style="width:76%"></i>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =====================================================
+           CLASS-WISE REPORT
+           ===================================================== -->
+
+      <section class="panel">
+
+
+        <!-- Heading area of the report panel -->
+        <div class="panel-heading">
+
+
+          <!-- Report title and description -->
+          <div>
+
+            <h2>
+              Class-wise report
+            </h2>
+
+            <p>
+              Current semester attendance summary.
+            </p>
+
+          </div>
+
+
+          <!--
+            Semester dropdown.
+
+            It allows the teacher to select the semester
+            whose attendance report they want to view.
+          -->
+          <select>
+
+            <!-- Default semester -->
+            <option>
+              Semester 5
+            </option>
+
+            <!-- Another available semester -->
+            <option>
+              Semester 4
+            </option>
+
+          </select>
+
+        </div>
+
+
+
+        <!-- ===================================================
+             REPORT TABLE
+             =================================================== -->
+
+        <div class="table-wrap">
+
+
+          <!--
+            id="reportTable" is important because
+            app.js uses this table when exporting
+            the report as CSV.
+          -->
+          <table id="reportTable">
+
+
+            <!-- Table headings -->
+            <thead>
+
+              <tr>
+
+                <!-- Class and subject -->
+                <th>
+                  Class
+                </th>
+
+                <!-- Total number of students -->
+                <th>
+                  Students
+                </th>
+
+                <!-- Number of present students -->
+                <th>
+                  Present
+                </th>
+
+                <!-- Number of absent students -->
+                <th>
+                  Absent
+                </th>
+
+                <!-- Average attendance -->
+                <th>
+                  Average
+                </th>
+
+                <!-- Overall attendance health -->
+                <th>
+                  Health
+                </th>
+
+              </tr>
+
+            </thead>
+
+
+
+            <!-- =================================================
+                 REPORT DATA
+                 ================================================= -->
+
+            <tbody>
+
+
+              <!-- ================= CLASS 1 ================= -->
+
+              <tr>
+
+                <!-- Class name -->
+                <td>
+                  Web Technology - BCA-3A
+                </td>
+
+                <!-- Total students -->
+                <td>
+                  45
+                </td>
+
+                <!-- Present students -->
+                <td>
+                  41
+                </td>
+
+                <!-- Absent students -->
+                <td>
+                  4
+                </td>
+
+                <!-- Attendance percentage -->
+                <td>
+                  91.1%
+                </td>
+
+                <!-- Attendance health -->
+                <td>
+
+                  <!--
+                    success badge indicates a healthy
+                    attendance level.
+                  -->
+                  <span class="badge success">
+                    Healthy
+                  </span>
+
+                </td>
+
+              </tr>
+
+
+
+              <!-- ================= CLASS 2 ================= -->
+
+              <tr>
+
+                <td>
+                  Database Systems - BCA-3B
+                </td>
+
+                <td>
+                  41
+                </td>
+
+                <td>
+                  35
+                </td>
+
+                <td>
+                  6
+                </td>
+
+                <td>
+                  85.4%
+                </td>
+
+                <td>
+
+                  <span class="badge success">
+                    Healthy
+                  </span>
+
+                </td>
+
+              </tr>
+
+
+
+              <!-- ================= CLASS 3 ================= -->
+
+              <tr>
+
+                <td>
+                  Computer Networks - BCA-2A
+                </td>
+
+                <td>
+                  40
+                </td>
+
+                <td>
+                  29
+                </td>
+
+                <td>
+                  11
+                </td>
+
+                <td>
+                  72.5%
+                </td>
+
+                <td>
+
+                  <!--
+                    danger badge indicates that attendance
+                    is below the required level.
+                  -->
+                  <span class="badge danger">
+                    Shortage
+                  </span>
+
+                </td>
+
+              </tr>
+
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       
+       app.js handles the interactive features of this page.
+
+       In this page it is mainly responsible for:
+       - Exporting the report as CSV
+       - Mobile sidebar interaction
+       ===================================================== -->
+
+  <script src="../js/app.js"></script>
+
+</body>
+</html>
