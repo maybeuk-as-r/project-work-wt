@@ -1,15 +1,660 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Classes | Smart Attendance</title><link rel="stylesheet" href="../css/style.css"></head>
-<body class="dashboard-body"><div class="dashboard-layout">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Defines the character encoding of the webpage -->
+  <meta charset="UTF-8">
+
+  <!-- Makes the webpage responsive on mobile and tablet devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title displayed in the browser tab -->
+  <title>Classes | Smart Attendance</title>
+
+  <!-- Connects this page to the main CSS stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+
+<body class="dashboard-body">
+
+  <!-- Main dashboard container -->
+  <div class="dashboard-layout">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         Contains teacher navigation
+         ===================================================== -->
     <aside class="sidebar">
-      <a class="brand" href="../index.html"><span class="brand-mark">SA</span><span>Smart Attendance</span></a>
-      <div class="side-role"><span class="avatar">T</span><div><strong>Teacher</strong><small>Portal</small></div></div>
+
+      <!-- Smart Attendance logo and home link -->
+      <a class="brand" href="../index.html">
+
+        <!-- SA = Smart Attendance -->
+        <span class="brand-mark">SA</span>
+
+        <!-- Website name -->
+        <span>Smart Attendance</span>
+
+      </a>
+
+
+      <!-- ===================================================
+           TEACHER ROLE
+           =================================================== -->
+
+      <div class="side-role">
+
+        <!-- Teacher avatar -->
+        <span class="avatar">T</span>
+
+        <!-- Teacher role information -->
+        <div>
+          <strong>Teacher</strong>
+          <small>Portal</small>
+        </div>
+
+      </div>
+
+
+      <!-- ===================================================
+           NAVIGATION MENU
+           =================================================== -->
+
       <nav class="side-nav">
-        <a class="" href="teacher-dashboard.html">⌂ <span>Dashboard</span></a>
-        <a class="active" href="classes.html">▦ <span>Classes</span></a>
-        <a class="" href="attendance.html">✓ <span>Attendance</span></a>
-        <a class="" href="reports.html">▥ <span>Reports</span></a>
-        <a href="profile.html">◉ <span>Profile</span></a>
+
+        <!-- Dashboard page -->
+        <a class="" href="teacher-dashboard.html">
+          ⌂ <span>Dashboard</span>
+        </a>
+
+
+        <!-- Classes page
+             "active" shows that this is the current page -->
+        <a class="active" href="classes.html">
+          ▦ <span>Classes</span>
+        </a>
+
+
+        <!-- Attendance page -->
+        <a class="" href="attendance.html">
+          ✓ <span>Attendance</span>
+        </a>
+
+
+        <!-- Reports page -->
+        <a class="" href="reports.html">
+          ▥ <span>Reports</span>
+        </a>
+
+
+        <!-- Teacher profile -->
+        <a href="profile.html">
+          ◉ <span>Profile</span>
+        </a>
+
       </nav>
-      <a class="logout" href="login.html">↪ <span>Logout</span></a>
-    </aside><main class="main-area"><header class="topbar"><button class="mobile-sidebar" aria-label="Menu">☰</button><div><p class="breadcrumb">Portal / Classes</p><h1>Classes</h1></div><div class="top-user"><div class="notification">♧</div><span class="avatar">R</span><div class="top-user-text"><strong>Rudraksh</strong><small>Teacher</small></div></div></header><div class="page-actions"><div><p class="muted">Manage class and subject offerings.</p></div><button class="btn btn-primary" data-open-modal="classModal">＋ Add Class</button></div><section class="panel"><div class="filter-row"><input class="search-input" data-table-search="classTable" placeholder="Search classes..."><select><option>All semesters</option><option>Semester 5</option><option>Semester 4</option></select><select><option>All sections</option><option>A</option><option>B</option></select></div><div class="table-wrap"><table id="classTable"><thead><tr><th>Course Code</th><th>Class Name</th><th>Semester</th><th>Section</th><th>Students</th><th>Action</th></tr></thead><tbody><tr><td>WT501</td><td>Web Technology</td><td>5</td><td>A</td><td>45</td><td><button class="table-btn">View</button></td></tr><tr><td>DB502</td><td>Database Systems</td><td>5</td><td>B</td><td>41</td><td><button class="table-btn">View</button></td></tr><tr><td>CN401</td><td>Computer Networks</td><td>4</td><td>A</td><td>40</td><td><button class="table-btn">View</button></td></tr></tbody></table></div></section>
-<div class="modal" id="classModal"><div class="modal-box"><button class="modal-close" data-close-modal>×</button><span class="eyebrow">NEW CLASS</span><h2>Create class</h2><form class="demo-form" novalidate><div class="form-group"><label>Course code</label><input required placeholder="e.g. WT501"></div><div class="form-group"><label>Class name</label><input required placeholder="e.g. Web Technology"></div><div class="form-grid"><div class="form-group"><label>Semester</label><select required><option value="">Select</option><option>4</option><option>5</option><option>6</option></select></div><div class="form-group"><label>Section</label><select required><option value="">Select</option><option>A</option><option>B</option></select></div></div><button class="btn btn-primary full">Save Class</button></form></div></div></main></div><script src="../js/app.js"></script></body></html>
+
+
+      <!-- Logout button -->
+      <!-- Clicking it takes the user back to the login page -->
+      <a class="logout" href="login.html">
+        ↪ <span>Logout</span>
+      </a>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT AREA
+         ===================================================== -->
+
+    <main class="main-area">
+
+
+      <!-- ===================================================
+           TOP BAR
+           =================================================== -->
+
+      <header class="topbar">
+
+        <!-- Mobile menu button -->
+        <button class="mobile-sidebar" aria-label="Menu">
+          ☰
+        </button>
+
+
+        <!-- Page title and breadcrumb -->
+        <div>
+
+          <!-- Shows the current location -->
+          <p class="breadcrumb">
+            Portal / Classes
+          </p>
+
+          <!-- Main heading -->
+          <h1>
+            Classes
+          </h1>
+
+        </div>
+
+
+        <!-- =================================================
+             TEACHER INFORMATION
+             ================================================= -->
+
+        <div class="top-user">
+
+          <!-- Notification icon -->
+          <div class="notification">
+            ♧
+          </div>
+
+
+          <!-- Teacher avatar -->
+          <span class="avatar">
+            R
+          </span>
+
+
+          <!-- Teacher name and role -->
+          <div class="top-user-text">
+
+            <strong>
+              Rudraksh
+            </strong>
+
+            <small>
+              Teacher
+            </small>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+
+      <!-- =====================================================
+           PAGE ACTIONS
+           Contains description and Add Class button
+           ===================================================== -->
+
+      <div class="page-actions">
+
+        <!-- Description of the page -->
+        <div>
+          <p class="muted">
+            Manage class and subject offerings.
+          </p>
+        </div>
+
+
+        <!-- Add Class button
+
+             data-open-modal tells JavaScript which modal
+             should be opened when this button is clicked.
+
+             Here it opens the element with id="classModal". -->
+        <button
+          class="btn btn-primary"
+          data-open-modal="classModal">
+
+          ＋ Add Class
+
+        </button>
+
+      </div>
+
+
+
+      <!-- =====================================================
+           CLASS MANAGEMENT PANEL
+           ===================================================== -->
+
+      <section class="panel">
+
+
+        <!-- ===================================================
+             FILTER AND SEARCH AREA
+             =================================================== -->
+
+        <div class="filter-row">
+
+
+          <!-- Search box
+
+               data-table-search="classTable"
+               tells JavaScript that this input should
+               search inside the table with id="classTable". -->
+          <input
+            class="search-input"
+            data-table-search="classTable"
+            placeholder="Search classes...">
+
+
+          <!-- Semester filter -->
+          <select>
+
+            <!-- Default option -->
+            <option>
+              All semesters
+            </option>
+
+            <!-- Available semesters -->
+            <option>
+              Semester 5
+            </option>
+
+            <option>
+              Semester 4
+            </option>
+
+          </select>
+
+
+          <!-- Section filter -->
+          <select>
+
+            <!-- Default option -->
+            <option>
+              All sections
+            </option>
+
+            <!-- Available sections -->
+            <option>
+              A
+            </option>
+
+            <option>
+              B
+            </option>
+
+          </select>
+
+        </div>
+
+
+
+        <!-- ===================================================
+             CLASS TABLE
+             =================================================== -->
+
+        <div class="table-wrap">
+
+          <!--
+            id="classTable" is important because
+            JavaScript uses it for the search functionality.
+          -->
+          <table id="classTable">
+
+
+            <!-- Table headings -->
+            <thead>
+
+              <tr>
+
+                <!-- Course identification code -->
+                <th>
+                  Course Code
+                </th>
+
+                <!-- Subject/class name -->
+                <th>
+                  Class Name
+                </th>
+
+                <!-- Semester number -->
+                <th>
+                  Semester
+                </th>
+
+                <!-- Section -->
+                <th>
+                  Section
+                </th>
+
+                <!-- Number of students -->
+                <th>
+                  Students
+                </th>
+
+                <!-- Action button -->
+                <th>
+                  Action
+                </th>
+
+              </tr>
+
+            </thead>
+
+
+            <!-- =================================================
+                 TABLE DATA
+                 ================================================= -->
+
+            <tbody>
+
+
+              <!-- ================= CLASS 1 ================= -->
+
+              <tr>
+
+                <!-- Course code -->
+                <td>
+                  WT501
+                </td>
+
+                <!-- Subject name -->
+                <td>
+                  Web Technology
+                </td>
+
+                <!-- Semester -->
+                <td>
+                  5
+                </td>
+
+                <!-- Section -->
+                <td>
+                  A
+                </td>
+
+                <!-- Number of students -->
+                <td>
+                  45
+                </td>
+
+                <!-- View button -->
+                <td>
+                  <button class="table-btn">
+                    View
+                  </button>
+                </td>
+
+              </tr>
+
+
+              <!-- ================= CLASS 2 ================= -->
+
+              <tr>
+
+                <td>
+                  DB502
+                </td>
+
+                <td>
+                  Database Systems
+                </td>
+
+                <td>
+                  5
+                </td>
+
+                <td>
+                  B
+                </td>
+
+                <td>
+                  41
+                </td>
+
+                <td>
+                  <button class="table-btn">
+                    View
+                  </button>
+                </td>
+
+              </tr>
+
+
+              <!-- ================= CLASS 3 ================= -->
+
+              <tr>
+
+                <td>
+                  CN401
+                </td>
+
+                <td>
+                  Computer Networks
+                </td>
+
+                <td>
+                  4
+                </td>
+
+                <td>
+                  A
+                </td>
+
+                <td>
+                  40
+                </td>
+
+                <td>
+                  <button class="table-btn">
+                    View
+                  </button>
+                </td>
+
+              </tr>
+
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =====================================================
+           ADD NEW CLASS MODAL
+           
+           This modal is initially hidden.
+           JavaScript opens it when the user clicks
+           the "Add Class" button.
+           ===================================================== -->
+
+      <div
+        class="modal"
+        id="classModal">
+
+
+        <!-- Modal content box -->
+        <div class="modal-box">
+
+
+          <!-- Close modal button -->
+          <!-- data-close-modal is handled by JavaScript -->
+          <button
+            class="modal-close"
+            data-close-modal>
+
+            ×
+
+          </button>
+
+
+          <!-- Small modal label -->
+          <span class="eyebrow">
+            NEW CLASS
+          </span>
+
+
+          <!-- Modal heading -->
+          <h2>
+            Create class
+          </h2>
+
+
+
+          <!-- =================================================
+               NEW CLASS FORM
+               ================================================= -->
+
+          <form
+            class="demo-form"
+            novalidate>
+
+
+            <!-- =================================================
+                 COURSE CODE
+                 ================================================= -->
+
+            <div class="form-group">
+
+              <!-- Label for input -->
+              <label>
+                Course code
+              </label>
+
+              <!-- Course code input
+                   required means the field cannot be empty -->
+              <input
+                required
+                placeholder="e.g. WT501">
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CLASS NAME
+                 ================================================= -->
+
+            <div class="form-group">
+
+              <!-- Label -->
+              <label>
+                Class name
+              </label>
+
+              <!-- Class name input -->
+              <input
+                required
+                placeholder="e.g. Web Technology">
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SEMESTER AND SECTION
+                 ================================================= -->
+
+            <div class="form-grid">
+
+
+              <!-- Semester selection -->
+              <div class="form-group">
+
+                <label>
+                  Semester
+                </label>
+
+                <!-- Required dropdown -->
+                <select required>
+
+                  <!-- Empty default option -->
+                  <option value="">
+                    Select
+                  </option>
+
+                  <!-- Semester options -->
+                  <option>
+                    4
+                  </option>
+
+                  <option>
+                    5
+                  </option>
+
+                  <option>
+                    6
+                  </option>
+
+                </select>
+
+              </div>
+
+
+
+              <!-- Section selection -->
+              <div class="form-group">
+
+                <label>
+                  Section
+                </label>
+
+                <!-- Required dropdown -->
+                <select required>
+
+                  <!-- Empty default option -->
+                  <option value="">
+                    Select
+                  </option>
+
+                  <!-- Section options -->
+                  <option>
+                    A
+                  </option>
+
+                  <option>
+                    B
+                  </option>
+
+                </select>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SAVE CLASS BUTTON
+                 ================================================= -->
+
+            <button
+              class="btn btn-primary full">
+
+              Save Class
+
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       
+       app.js provides the interactive functionality such as:
+       - Opening/closing the modal
+       - Form validation
+       - Searching the class table
+       - Mobile sidebar
+       ===================================================== -->
+
+  <script src="../js/app.js"></script>
+
+</body>
+</html>
