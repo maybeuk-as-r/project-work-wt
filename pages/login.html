@@ -1,16 +1,368 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Login | Smart Attendance</title><link rel="stylesheet" href="../css/style.css"></head>
+<html lang="en">
+
+<head>
+
+  <!-- Defines the character encoding used by the webpage -->
+  <meta charset="UTF-8">
+
+  <!-- Makes the page responsive on mobile, tablet and desktop -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title displayed in the browser tab -->
+  <title>Login | Smart Attendance</title>
+
+  <!-- Connects this page with the main CSS file -->
+  <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+
+<!--
+  auth-page is used for the login page styling.
+  The CSS file controls the complete appearance of this page.
+-->
 <body class="auth-page">
-<div class="auth-shell">
-  <div class="auth-visual"><a class="brand light" href="../index.html"><span class="brand-mark">SA</span><span>Smart Attendance</span></a><div><span class="eyebrow">SECURE PORTAL</span><h1>Attendance at a glance.</h1><p>Sign in to access your role-based dashboard and academic attendance information.</p></div><div class="auth-note">Admin • Teacher • Student</div></div>
-  <div class="auth-form-wrap"><a class="back-link" href="../index.html">← Back to home</a><div class="form-box"><span class="eyebrow">WELCOME BACK</span><h2>Sign in</h2><p class="muted">Use any valid email and password for this frontend demo.</p>
-    <form id="loginForm" novalidate>
-      <div class="form-group"><label for="loginEmail">Email address</label><input id="loginEmail" type="email" placeholder="you@example.com" required><small class="error"></small></div>
-      <div class="form-group"><label for="loginPassword">Password</label><div class="password-field"><input id="loginPassword" type="password" placeholder="Minimum 6 characters" minlength="6" required><button type="button" class="show-password" data-target="loginPassword">Show</button></div><small class="error"></small></div>
-      <div class="form-options"><label class="check"><input type="checkbox"> Remember me</label><a href="#" id="forgotLink">Forgot password?</a></div>
-      <button class="btn btn-primary full" type="submit">Sign In</button><div id="loginMessage" class="form-message"></div>
-    </form>
-    <p class="auth-switch">Don't have an account? <a href="register.html">Create one</a></p>
-    <div class="demo-links"><strong>Demo dashboards</strong><div><a href="admin-dashboard.html">Admin</a><a href="teacher-dashboard.html">Teacher</a><a href="student-dashboard.html">Student</a></div></div>
-  </div></div>
-</div><script src="../js/app.js"></script></body></html>
+
+
+  <!-- =====================================================
+       MAIN LOGIN CONTAINER
+       ===================================================== -->
+
+  <div class="auth-shell">
+
+
+    <!-- ===================================================
+         LEFT SIDE - INFORMATION / VISUAL SECTION
+         =================================================== -->
+
+    <div class="auth-visual">
+
+
+      <!-- Smart Attendance logo -->
+      <!-- Clicking the logo takes the user back to home -->
+      <a class="brand light" href="../index.html">
+
+        <!-- SA stands for Smart Attendance -->
+        <span class="brand-mark">
+          SA
+        </span>
+
+        <!-- Website name -->
+        <span>
+          Smart Attendance
+        </span>
+
+      </a>
+
+
+      <!-- Main information about the portal -->
+      <div>
+
+        <!-- Small section heading -->
+        <span class="eyebrow">
+          SECURE PORTAL
+        </span>
+
+        <!-- Main heading -->
+        <h1>
+          Attendance at a glance.
+        </h1>
+
+        <!-- Description of the login system -->
+        <p>
+          Sign in to access your role-based dashboard and academic
+          attendance information.
+        </p>
+
+      </div>
+
+
+      <!-- Shows the different types of users -->
+      <div class="auth-note">
+        Admin • Teacher • Student
+      </div>
+
+    </div>
+
+
+
+    <!-- ===================================================
+         RIGHT SIDE - LOGIN FORM
+         =================================================== -->
+
+    <div class="auth-form-wrap">
+
+
+      <!-- Link to return to the homepage -->
+      <a class="back-link" href="../index.html">
+        ← Back to home
+      </a>
+
+
+      <!-- Login form container -->
+      <div class="form-box">
+
+
+        <!-- Small heading -->
+        <span class="eyebrow">
+          WELCOME BACK
+        </span>
+
+
+        <!-- Main login heading -->
+        <h2>
+          Sign in
+        </h2>
+
+
+        <!-- Login instructions -->
+        <p class="muted">
+          Use any valid email and password for this frontend demo.
+        </p>
+
+
+
+        <!-- =================================================
+             LOGIN FORM
+             ================================================= -->
+
+        <!--
+          id="loginForm" allows JavaScript to find this form.
+
+          novalidate disables the browser's default validation
+          because our own JavaScript validation is being used.
+        -->
+        <form id="loginForm" novalidate>
+
+
+          <!-- ===============================================
+               EMAIL FIELD
+               =============================================== -->
+
+          <div class="form-group">
+
+            <!-- Label connected to the email input -->
+            <label for="loginEmail">
+              Email address
+            </label>
+
+
+            <!--
+              type="email" tells the browser that this is
+              an email input.
+
+              required means the user must enter a value.
+            -->
+            <input
+              id="loginEmail"
+              type="email"
+              placeholder="you@example.com"
+              required
+            >
+
+
+            <!--
+              JavaScript displays validation error messages
+              inside this element.
+            -->
+            <small class="error"></small>
+
+          </div>
+
+
+
+          <!-- ===============================================
+               PASSWORD FIELD
+               =============================================== -->
+
+          <div class="form-group">
+
+            <!-- Password label -->
+            <label for="loginPassword">
+              Password
+            </label>
+
+
+            <!--
+              password-field groups the password input
+              and Show/Hide password button.
+            -->
+            <div class="password-field">
+
+
+              <!--
+                type="password" hides the password characters.
+
+                minlength="6" means the password must contain
+                at least 6 characters.
+
+                required means the field cannot be empty.
+              -->
+              <input
+                id="loginPassword"
+                type="password"
+                placeholder="Minimum 6 characters"
+                minlength="6"
+                required
+              >
+
+
+              <!--
+                JavaScript changes this button between
+                "Show" and "Hide".
+
+                data-target tells JavaScript which input
+                should be changed.
+              -->
+              <button
+                type="button"
+                class="show-password"
+                data-target="loginPassword">
+
+                Show
+
+              </button>
+
+            </div>
+
+
+            <!-- Password validation error appears here -->
+            <small class="error"></small>
+
+          </div>
+
+
+
+          <!-- ===============================================
+               REMEMBER ME / FORGOT PASSWORD
+               =============================================== -->
+
+          <div class="form-options">
+
+
+            <!-- Remember me checkbox -->
+            <label class="check">
+
+              <input type="checkbox">
+
+              Remember me
+
+            </label>
+
+
+            <!--
+              Forgot password link.
+
+              JavaScript handles this link as a frontend demo.
+            -->
+            <a href="#" id="forgotLink">
+              Forgot password?
+            </a>
+
+          </div>
+
+
+
+          <!-- ===============================================
+               SIGN IN BUTTON
+               =============================================== -->
+
+          <button
+            class="btn btn-primary full"
+            type="submit">
+
+            Sign In
+
+          </button>
+
+
+          <!--
+            JavaScript displays success or error messages here.
+          -->
+          <div
+            id="loginMessage"
+            class="form-message">
+          </div>
+
+
+        </form>
+
+
+
+        <!-- =================================================
+             REGISTER LINK
+             ================================================= -->
+
+        <p class="auth-switch">
+
+          Don't have an account?
+
+          <!-- Takes the user to registration page -->
+          <a href="register.html">
+            Create one
+          </a>
+
+        </p>
+
+
+
+        <!-- =================================================
+             DEMO DASHBOARDS
+             ================================================= -->
+
+        <div class="demo-links">
+
+          <!-- Heading for demo links -->
+          <strong>
+            Demo dashboards
+          </strong>
+
+
+          <!-- Dashboard links -->
+          <div>
+
+            <!-- Admin dashboard -->
+            <a href="admin-dashboard.html">
+              Admin
+            </a>
+
+            <!-- Teacher dashboard -->
+            <a href="teacher-dashboard.html">
+              Teacher
+            </a>
+
+            <!-- Student dashboard -->
+            <a href="student-dashboard.html">
+              Student
+            </a>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!--
+    Connects the login page to the JavaScript file.
+
+    app.js handles:
+    - Form validation
+    - Email validation
+    - Password validation
+    - Show/Hide password
+    - Login success message
+    - Redirect to dashboard
+    - Forgot password demo
+  -->
+  <script src="../js/app.js"></script>
+
+</body>
+</html>
