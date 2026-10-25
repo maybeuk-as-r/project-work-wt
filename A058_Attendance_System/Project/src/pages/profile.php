@@ -1,0 +1,7 @@
+<?php
+require_once __DIR__ . '/../includes/layout.php';
+
+// Let a signed-in user update their profile.
+$me = require_login(); $error = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { check_csrf(); $name = trim($_POST['full_name'] ?? ''); $password = $_POST['password'] ?? ''; if (strlen($name)<2) $error='Name is required.'; else { $sql='UPDATE users SET full_name=?'; $values=[$name]; if ($password !== '') { if (strlen($password)<6) $error='New password must have at least 6 characters.'; else { $sql.=', password=?'; $values[]=password_hash($password,PASSWORD_DEFAULT); } } if (!$error) { $sql.=' WHERE id=?'; $values[]=$me['id']; db()->prepare($sql)->execute($values); $_SESSION['user']['full_name']=$name; redirect('pages/profile.php','Profile updated.'); } } }
+page_start('My Profile', $me); ?><section class="panel" style="max-width:650px"><div class="panel-heading"><div><h2>Account details</h2><p>Update your name or password.</p></div></div><?php if($error): ?><p class="error"><?=e($error)?></p><?php endif; ?><form method="post"><input type="hidden" name="csrf" value="<?=e(csrf())?>"><div class="form-group"><label>Full name</label><input name="full_name" required value="<?=e($_SESSION['user']['full_name'])?>"></div><div class="form-group"><label>Email address</label><input disabled value="<?=e($me['email'])?>"></div><div class="form-group"><label>New password</label><input name="password" type="password" placeholder="Leave empty to keep current password"></div><button class="btn btn-primary">Save Changes</button></form></section><?php page_end(); ?>
