@@ -1,7 +1,11 @@
 <?php
 require_once __DIR__ . '/../includes/auth.php';
+
+// Keep signed-in users out of the login page.
 if (user()) redirect('/dashboard.php');
 $error = '';
+
+// Verify credentials and start the session.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     check_csrf();
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
@@ -10,7 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute([$email]);
     $found = $stmt->fetch();
     if ($found && password_verify($password, $found['password'])) {
-        unset($found['password']); $_SESSION['user'] = $found; redirect('/dashboard.php');
+        if (password_needs_rehash($found['password'], PASSWORD_DEFAULT)) {
+            db()->prepare('UPDATE users SET password=? WHERE id=?')
+                ->execute([password_hash($password, PASSWORD_DEFAULT), $found['id']]);
+        }
+        login($found);
+        redirect('/dashboard.php');
     }
     $error = 'Invalid email or password.';
 }

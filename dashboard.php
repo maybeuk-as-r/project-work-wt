@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/layout.php';
+
+// Load statistics for the current role.
 $me = require_login();
 $pdo = db();
 if ($me['role'] === 'admin') {

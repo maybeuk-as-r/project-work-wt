@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/../includes/auth.php';
 $error = '';
+
+// Register a student with a hashed password.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     check_csrf();
     $name = trim($_POST['full_name'] ?? ''); $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL); $password = $_POST['password'] ?? '';

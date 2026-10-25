@@ -1,5 +1,8 @@
 <?php
-require_once __DIR__ . '/../includes/layout.php'; $me = require_login(['admin']); $pdo = db(); $error = '';
+require_once __DIR__ . '/../includes/layout.php';
+
+// Only administrators can manage accounts.
+$me = require_login(['admin']); $pdo = db(); $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') { check_csrf(); $action=$_POST['action']??''; $id=(int)($_POST['id']??0);
     if ($action==='delete' && $id !== $me['id']) { $pdo->prepare('DELETE FROM users WHERE id=?')->execute([$id]); redirect('pages/users.php','User deleted.'); }
     $name=trim($_POST['full_name']??''); $email=filter_input(INPUT_POST,'email',FILTER_VALIDATE_EMAIL); $role=$_POST['role']??'';

@@ -6,6 +6,7 @@ const DB_NAME = 'smart_attendance';
 const DB_USER = 'root';
 const DB_PASS = '';
 
+// Create one reusable PDO connection.
 function db(): PDO
 {
     static $pdo;
